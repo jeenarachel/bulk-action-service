@@ -5,8 +5,8 @@ This project implements a **scalable Bulk Action Service** using **Node.js, Expr
 ---
 
 ## Table of Contents
-- [Tech Stack](#️-tech-stack)
-- [System Architecture](#️-system-architecture)
+- [Tech Stack](#️tech-stack)
+- [System Architecture](#️system-architecture)
 - [Loom Video Demo](#-loom-video-demo)
 - [API Documentation](#-api-documentation)
 - [Postman Collection](#-postman-collection)
