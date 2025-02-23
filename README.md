@@ -5,12 +5,12 @@ This project implements a **scalable Bulk Action Service** using **Node.js, Expr
 ---
 
 ## Table of Contents
-- [Tech Stack](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#system-architecture)
-- [System Architecture](#️system-architecture)
-- [Loom Video Demo](#-loom-video-demo)
-- [API Documentation](#-api-documentation)
-- [Postman Collection](#-postman-collection)
-- [Setup & Installation](#-setup--installation)
+- [Tech Stack](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#tech-stack)
+- [System Architecture](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#system-architecture)
+- [Loom Video Demo](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#loom-video-demo)
+- [Postman Collection](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#postman-collection)
+- [API Documentation](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#api-documentation)
+- [Setup & Installation](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#setup)
   
 ---
 
@@ -170,7 +170,7 @@ Response:
 
 ---
 
-## Setup & Installation
+## Setup
 
 Clone the Repository
 ```
