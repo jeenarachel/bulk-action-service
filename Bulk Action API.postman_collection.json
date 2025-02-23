@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "70a0b88f-f7e6-4dd9-8be8-d00787a8f815",
+		"name": "Bulk Action API",
+		"description": "This collection contains all endpoints for the Bulk Action API. It allows users to create, track, and retrieve details about bulk action operations.  \n\nEndpoints:\n\n- POST /bulk-actions - Create a new bulk action.\n    \n- GET /bulk-actions - Retrieve all bulk actions.\n    \n- GET /bulk-actions/{actionId} - Get details of a specific bulk action.\n    \n- GET /bulk-actions/{actionId}/stats - Retrieve processing statistics for a bulk action.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42560610"
+	},
+	"item": [
+		{
+			"name": "bulk-actions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "actionType",
+							"value": "BULK_UPDATE",
+							"description": "Bulk action type being performed",
+							"type": "text"
+						},
+						{
+							"key": "entityType",
+							"value": "Contact",
+							"description": "Entity Type that bulk action is being performed on",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"description": "CSV File attachment containing bulk action items",
+							"type": "file",
+							"src": "/Users/j0n07nl/Desktop/test2.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/bulk-actions",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"bulk-actions"
+					]
+				},
+				"description": "Creates and executes a new bulk action in the system."
+			},
+			"response": [
+				{
+					"name": "BULK_UPDATE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "actionType",
+									"value": "BULK_UPDATE",
+									"description": "Bulk action type being performed",
+									"type": "text"
+								},
+								{
+									"key": "entityType",
+									"value": "Contact",
+									"description": "Entity Type that bulk action is being performed on",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"description": "CSV File attachment containing bulk action items",
+									"type": "file",
+									"src": "/Users/j0n07nl/Desktop/test2.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/bulk-actions",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"bulk-actions"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"actionId\": \"67bb2ebd47fd3489bc8ba0bd\",\n    \"status\": \"QUEUED\",\n    \"message\": \"Bulk action saved successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "bulk-actions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/bulk-actions",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"bulk-actions"
+					]
+				},
+				"description": "Lists all the bulk actions"
+			},
+			"response": [
+				{
+					"name": "bulk-actions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/bulk-actions",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"bulk-actions"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"actionId\": \"67bb2f5f47fd3489bc8ba0c8\",\n        \"actionType\": \"BULK_UPDATE\",\n        \"entityType\": \"Contact\",\n        \"status\": \"COMPLETED\",\n        \"totalCount\": 1500,\n        \"processedCount\": 1500,\n        \"successCount\": 0,\n        \"failureCount\": 0,\n        \"skippedCount\": 0,\n        \"createdAt\": \"2025-02-23T14:23:27.180Z\"\n    },\n    {\n        \"actionId\": \"67bb2ebd47fd3489bc8ba0bd\",\n        \"actionType\": \"BULK_UPDATE\",\n        \"entityType\": \"Contact\",\n        \"status\": \"PROCESSING\",\n        \"totalCount\": 2500,\n        \"processedCount\": 1500,\n        \"successCount\": 1500,\n        \"failureCount\": 0,\n        \"skippedCount\": 0,\n        \"createdAt\": \"2025-02-23T14:20:45.463Z\"\n    },\n    {\n        \"actionId\": \"67bb2be247fd3489bc8ba0b2\",\n        \"actionType\": \"BULK_UPDATE\",\n        \"entityType\": \"Contact\",\n        \"status\": \"QUEUED\",\n        \"totalCount\": 1500,\n        \"processedCount\": 0,\n        \"successCount\": 0,\n        \"failureCount\": 0,\n        \"skippedCount\": 0,\n        \"createdAt\": \"2025-02-23T14:08:34.089Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "bulk-actions/{actionId}",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/bulk-actions/67bb2f5f47fd3489bc8ba0c8",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"bulk-actions",
+						"67bb2f5f47fd3489bc8ba0c8"
+					]
+				},
+				"description": "Retrieves the details about the bulk action"
+			},
+			"response": [
+				{
+					"name": "bulk-actions/{actionId}",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/bulk-actions/67bb2f5f47fd3489bc8ba0c8",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"bulk-actions",
+								"67bb2f5f47fd3489bc8ba0c8"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"actionId\": \"67bb2f5f47fd3489bc8ba0c8\",\n    \"actionType\": \"BULK_UPDATE\",\n    \"entityType\": \"Contact\",\n    \"status\": \"COMPLETED\",\n    \"totalCount\": 1500,\n    \"processedCount\": 1500,\n    \"successCount\": 0,\n    \"failureCount\": 0,\n    \"skippedCount\": 0,\n    \"createdAt\": \"2025-02-23T14:23:27.180Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "bulk-actions/{actionId}/stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/bulk-actions/67bb2f5f47fd3489bc8ba0c8/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"bulk-actions",
+						"67bb2f5f47fd3489bc8ba0c8",
+						"stats"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "bulk-actions/{actionId}/stats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/bulk-actions/67bb2f5f47fd3489bc8ba0c8/stats",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"bulk-actions",
+								"67bb2f5f47fd3489bc8ba0c8",
+								"stats"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"actionId\": \"67bb2f5f47fd3489bc8ba0c8\",\n    \"totalCount\": 1500,\n    \"processedCount\": 1500,\n    \"successCount\": 0,\n    \"failureCount\": 0,\n    \"skippedCount\": 0\n}"
+				}
+			]
+		}
+	]
+}
