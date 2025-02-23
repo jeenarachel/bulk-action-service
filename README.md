@@ -5,7 +5,7 @@ This project implements a **scalable Bulk Action Service** using **Node.js, Expr
 ---
 
 ## Table of Contents
-- [Tech Stack](#️tech-stack)
+- [Tech Stack](https://github.com/jeenarachel/bulk-action-service/blob/main/README.md#system-architecture)
 - [System Architecture](#️system-architecture)
 - [Loom Video Demo](#-loom-video-demo)
 - [API Documentation](#-api-documentation)
