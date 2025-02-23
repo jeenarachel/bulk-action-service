@@ -59,7 +59,7 @@ Clients can query the progress using:
 
 ## Loom Video Demo
 
-
+https://www.loom.com/share/e822e01403df4913b522964d929c0236?sid=151e780d-fbc6-4086-84de-3c0480540204
 
 ---
 
@@ -78,7 +78,8 @@ Body:
 ```
 {
   "actionType": "BULK_UPDATE",
-  "entityType": "Contact"
+  "entityType": "Contact",
+  "file": test.csv
 }
 ```
 Response:
