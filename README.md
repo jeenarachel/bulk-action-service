@@ -32,22 +32,23 @@ This project implements a **scalable Bulk Action Service** using **Node.js, Expr
 The system is designed to handle bulk actions, such as bulk updates, efficiently by processing large amounts of data asynchronously. It leverages caching, object storage, message queues, and search indexing to track progress and handle failures gracefully.
 
 1. Client Initiation:
-   A web application or mobile client sends a bulk action request to the system via an API Gateway. The request is made using POST /bulk-actions, triggering the bulk operation.
+   - A web application or mobile client sends a bulk action request to the system via an API Gateway.
+   - The request is made using POST /bulk-actions, triggering the bulk operation.
 2. API Gateway & Load Balancer:
-   The API Gateway routes incoming requests to the Bulk Action Service, ensuring load balancing and security.
+   - The API Gateway routes incoming requests to the Bulk Action Service, ensuring load balancing and security.
 3. Bulk Action Service:
-   Receives the bulk action request and stores metadata about the request (e.g., total records, status, timestamps) in the bulk_actions database.
-   Stores the CSV action file in Object Storage for further processing.
+   - Receives the bulk action request and stores metadata about the request (e.g., total records, status, timestamps) in the bulk_actions database.
+   - Stores the CSV action file in Object Storage for further processing.
 4. Bulk Processing Service:
-   Retrieves the stored action file from Object Storage and begins processing records.
-   Publishes messages in batches to a Kafka queue for asynchronous processing.
-   In case of processing failures, the messages are moved to a Dead Letter Queue (DLQ) for later debugging and retry.
-  Uses Logstash for logging processing failures and updates Elasticsearch with failure logs.
+   - Retrieves the stored action file from Object Storage and begins processing records.
+   - Publishes messages in batches to a Kafka queue for asynchronous processing.
+   - In case of processing failures, the messages are moved to a Dead Letter Queue (DLQ) for later debugging and retry.
+   - Uses Logstash for logging processing failures and updates Elasticsearch with failure logs.
 5. Entity Updates:
-   Successfully processed records trigger batch updates to the entity database.
-   The database stores updated entity records with their latest status and action tracking details.
+   - Successfully processed records trigger batch updates to the entity database.
+   - The database stores updated entity records with their latest status and action tracking details.
 6. Progress Updates & Status Tracking:
-   The Progress Update Service aggregates the count of the processed records, and performs bulk updates to the bulk_actions database.
+   - The Progress Update Service aggregates the count of the processed records, and performs bulk updates to the bulk_actions database.
 
 Clients can query the progress using:
 - GET /bulk-actions – Lists all bulk actions.
